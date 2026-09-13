@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "record_stage": "plan",
+  "shoot_id": "generic-interaction",
+  "shot_id": "generic-interaction-01",
+  "is_example": true,
+  "character": {
+    "profile_id": "example-adult",
+    "profile_version": "draft-1",
+    "profile_path": "../profiles/example-adult/profile.json",
+    "path_base": "record",
+    "profile_sha256": "4c81c8b141bbd82871a4ef84633ddf80ea108397c79120f1edcbd7674493b95f",
+    "references": []
+  },
+  "context": {
+    "scene_time_local": null,
+    "timezone": "Etc/UTC",
+    "location": {
+      "city": null,
+      "district": null,
+      "place": "Fictional small home kitchen; city unspecified",
+      "accuracy": "fictionalized",
+      "source": null
+    },
+    "weather": {
+      "basis": "scenario",
+      "source": null,
+      "retrieved_at": null,
+      "valid_at": null,
+      "temperature_c": null,
+      "feels_like_c": null,
+      "precipitation": null,
+      "wind": null,
+      "summary": "Explicit fictional planning example with soft indoor window light; no current weather or temperature claim."
+    }
+  },
+  "event": {
+    "id": "generic-interaction-event",
+    "basis": "proposed",
+    "source": {
+      "kind": "example",
+      "locator": "examples/generic-interaction.plan.json",
+      "note": "明确的虚构互动方案；未查询天气、未生图、未选定身份参考。"
+    },
+    "motivation": "和同伴一起准备早餐。",
+    "before": "在早餐桌边整理盘中的吐司。",
+    "action": "听到镜头后的同伴问话，暂停动作，抬眼听清并轻微前倾，把盘子向共享桌面轻推。",
+    "after": "等同伴回应，再继续整理早餐。",
+    "mood": "专注倾听，放松自然。"
+  },
+  "appearance": {
+    "wardrobe": "燕麦色棉 T 和宽松深色长裤。",
+    "hair": "短棕色卷发。",
+    "makeup": "自然日常状态。",
+    "accessories": [],
+    "props": [
+      "装有吐司的陶瓷盘"
+    ]
+  },
+  "photography": {
+    "style": {
+      "preset": "phone_snapshot",
+      "description": "手机日常随拍搭配回应式互动，保留环境，不套固定写真配方。"
+    },
+    "camera": {
+      "focal_length_mm_intent": 35,
+      "aperture_intent": "deep enough to read kitchen, no simulated portrait-mode cutout",
+      "distance_m_intent": 1.4,
+      "framing": "off-center medium environmental view",
+      "height_and_angle": "seated companion eye level across the shared table"
+    },
+    "lighting": "侧窗柔光加室内小暖灯，无室外天气断言。",
+    "color": "自然厨房多色，无刻意单一亮色物件。",
+    "texture": "手机适量锐化、真实皮肤和织物，不加胶片颗粒或商业磨皮。"
+  },
+  "continuity": {
+    "group_key": "generic-interaction-a",
+    "previous_shot_ids": [],
+    "keep": [
+      "短棕卷发",
+      "暖中棕肤色",
+      "短胡须",
+      "同一件燕麦色棉 T"
+    ],
+    "intentional_changes": [],
+    "notes": "首次设计示例，尚无身份参考；不能声称已经锁定长期可复现的脸。UTC 只是无具体地点示例的记录时区，未指定拍摄日期。"
+  },
+  "prompts": {
+    "scene": "He wears an oatmeal cotton T-shirt and relaxed dark trousers and sits at a small breakfast table in a lived-in kitchen, arranging toast on a ceramic plate. The camera occupies the eye-level position of a companion seated across the table about 1.4 meters away. Hearing the companion ask to see the plate, he pauses, raises his gaze toward the person just behind the lens and leans forward slightly to listen. One hand remains in natural contact with the plate as he slides it a short distance toward the shared middle of the table. His shoulders stay relaxed and his expression is attentive, with a brief expectant pause rather than a fixed smile. The gaze, orientation and interrupted action make the exchange visible. A casual phone photograph with an intended 35 mm-equivalent view, slightly off-center framing and enough depth of field to read the room. Soft side window light and a small warm practical lamp, realistic skin and fabric texture, no studio polish. One visible person; the photographer remains outside the frame, with no selfie arm or extra hand.",
+    "standalone": "First design of the fictional character in this draft profile; no selected identity reference yet. A fictional 42-year-old man with short curly brown hair, warm medium-brown skin, brown eyes, a broad nose, a short neatly trimmed beard and an average solid build.\n\nHe wears an oatmeal cotton T-shirt and relaxed dark trousers and sits at a small breakfast table in a lived-in kitchen, arranging toast on a ceramic plate. The camera occupies the eye-level position of a companion seated across the table about 1.4 meters away. Hearing the companion ask to see the plate, he pauses, raises his gaze toward the person just behind the lens and leans forward slightly to listen. One hand remains in natural contact with the plate as he slides it a short distance toward the shared middle of the table. His shoulders stay relaxed and his expression is attentive, with a brief expectant pause rather than a fixed smile. The gaze, orientation and interrupted action make the exchange visible. A casual phone photograph with an intended 35 mm-equivalent view, slightly off-center framing and enough depth of field to read the room. Soft side window light and a small warm practical lamp, realistic skin and fabric texture, no studio polish. One visible person; the photographer remains outside the frame, with no selfie arm or extra hand.",
+    "negative": "Altered facial structure, changed hairstyle, bleached or distorted natural skin tone, added jewelry or facial marks, waxy skin, distorted hands, duplicated person, extreme close wide-angle distortion, artificial bokeh cutout."
+  },
+  "generation": {
+    "status": "not_requested",
+    "provider": null,
+    "model": null,
+    "task_id": null,
+    "seed": null,
+    "submitted_at": null,
+    "completed_at": null,
+    "image": null,
+    "error": null
+  },
+  "qc": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "findings": []
+  },
+  "evidence": [
+    {
+      "kind": "example",
+      "locator": "examples/generic-interaction.plan.json",
+      "note": "明确的虚构互动方案；未查询天气、未生图、未选定身份参考。"
+    }
+  ],
+  "interaction": {
+    "mode": "responsive",
+    "camera_role": "坐在早餐桌对面的画外同伴，手持相机；无自拍或第二人入镜。",
+    "trigger": "同伴问人物是否愿意把盘子转过来看看。",
+    "response": "人物停下整理吐司，抬眼回应，轻微前倾，把盘子向共享桌面轻推。",
+    "gaze_target": "镜头后同伴的眼睛，短暂停留。",
+    "visible_cues": [
+      "头和肩膀轻微转向拍摄者",
+      "目光抬起，专注倾听",
+      "手仍接触桌上的盘子，动作有停顿"
+    ]
+  },
+  "creation": {
+    "type_id": "daily-photo",
+    "type_version": "1.0",
+    "spec": {}
+  }
+}

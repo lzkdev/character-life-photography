@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "record_stage": "plan",
+  "shoot_id": "generic-magazine-cover",
+  "shot_id": "generic-magazine-cover-01",
+  "is_example": true,
+  "character": {
+    "profile_id": "example-adult",
+    "profile_version": "draft-1",
+    "profile_path": "../profiles/example-adult/profile.json",
+    "path_base": "record",
+    "profile_sha256": "4c81c8b141bbd82871a4ef84633ddf80ea108397c79120f1edcbd7674493b95f",
+    "references": []
+  },
+  "context": {
+    "scene_time_local": null,
+    "timezone": "Etc/UTC",
+    "location": {
+      "city": null,
+      "district": null,
+      "place": "Fictional portrait studio with warm neutral backdrop",
+      "accuracy": "fictionalized",
+      "source": null
+    },
+    "weather": {
+      "basis": "scenario",
+      "source": null,
+      "retrieved_at": null,
+      "valid_at": null,
+      "temperature_c": null,
+      "feels_like_c": null,
+      "precipitation": null,
+      "wind": null,
+      "summary": "Explicit creative studio lighting; no current city weather is asserted."
+    }
+  },
+  "event": {
+    "id": "generic-magazine-cover-event",
+    "basis": "proposed",
+    "source": {
+      "kind": "example",
+      "locator": "examples/generic-magazine-cover.plan.json",
+      "note": "Fictional ungenerated design example, including the invented masthead and headline; no real publication claim."
+    },
+    "motivation": "为虚构杂志制作一个人物封面设计示例。",
+    "before": "规划人物与标题留白。",
+    "action": "人物自然站在摄影棚中，身体轻微侧转，目光朝向镜头，双臂自然下垂。",
+    "after": "完成后检查人物身份与封面文字，目前尚未生图。",
+    "mood": "沉静、坦然。"
+  },
+  "appearance": {
+    "wardrobe": "燕麦色棉 T 和宽松深色长裤。",
+    "hair": "短棕色卷发。",
+    "makeup": "自然日常状态。",
+    "accessories": [],
+    "props": []
+  },
+  "photography": {
+    "style": {
+      "preset": "custom",
+      "description": "克制的棚拍杂志肖像，保留年龄和肤色，不套日常街拍环境。"
+    },
+    "camera": {
+      "focal_length_mm_intent": 65,
+      "aperture_intent": "moderate portrait depth, visual intent only",
+      "distance_m_intent": 2.5,
+      "framing": "vertical waist-up portrait with title space above head",
+      "height_and_angle": "eye level"
+    },
+    "lighting": "Designed large soft studio key and gentle fill against a warm neutral backdrop.",
+    "color": "Restrained oatmeal, warm gray and charcoal.",
+    "texture": "Natural skin and woven fabric, restrained editorial finish."
+  },
+  "continuity": {
+    "group_key": "generic-magazine-cover-a",
+    "previous_shot_ids": [],
+    "keep": [
+      "短棕卷发",
+      "暖中棕肤色",
+      "短胡须",
+      "同一件燕麦色棉 T"
+    ],
+    "intentional_changes": [],
+    "notes": "First character-design and cover-layout planning example; no selected identity reference or generated image. Fictional studio context, no real publication claim."
+  },
+  "prompts": {
+    "scene": "A fictional portrait magazine cover, vertical 2:3. The subject wears an oatmeal cotton T-shirt and relaxed charcoal trousers, standing in a warm gray portrait studio, torso turned slightly and gaze calmly toward the camera, arms relaxed. Eye-level 65 mm-equivalent waist-up portrait, large soft studio key and subtle fill, true skin texture and natural age. Leave room above the head for the exact masthead \"ATELIER NOTES\" and lower-left negative space for the exact cover line \"SMALL EVERYDAY THINGS\". Use a restrained, legible editorial hierarchy. Keep eyes, nose and mouth clearly visible. No additional issue number, barcode, price, real publisher mark or text. This is a fictional design exercise, not a published issue.",
+    "standalone": "First fictional character-design example with no selected identity image yet. A fictional 42-year-old man with short curly brown hair, warm medium-brown skin, brown eyes, a broad nose, a short neatly trimmed beard and an average solid build.\n\nA fictional portrait magazine cover, vertical 2:3. The subject wears an oatmeal cotton T-shirt and relaxed charcoal trousers, standing in a warm gray portrait studio, torso turned slightly and gaze calmly toward the camera, arms relaxed. Eye-level 65 mm-equivalent waist-up portrait, large soft studio key and subtle fill, true skin texture and natural age. Leave room above the head for the exact masthead \"ATELIER NOTES\" and lower-left negative space for the exact cover line \"SMALL EVERYDAY THINGS\". Use a restrained, legible editorial hierarchy. Keep eyes, nose and mouth clearly visible. No additional issue number, barcode, price, real publisher mark or text. This is a fictional design exercise, not a published issue.",
+    "negative": "Changed facial structure, de-aged face, altered skin tone, misspelled masthead or cover line, unrequested extra text, text outside the frame, distorted hands, collage."
+  },
+  "generation": {
+    "status": "not_requested",
+    "provider": null,
+    "model": null,
+    "task_id": null,
+    "seed": null,
+    "submitted_at": null,
+    "completed_at": null,
+    "image": null,
+    "error": null
+  },
+  "qc": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "findings": []
+  },
+  "evidence": [
+    {
+      "kind": "example",
+      "locator": "examples/generic-magazine-cover.plan.json",
+      "note": "Fictional ungenerated design example, including the invented masthead and headline; no real publication claim."
+    }
+  ],
+  "creation": {
+    "type_id": "magazine-cover",
+    "type_version": "1.0",
+    "spec": {
+      "deliverable": "finished-cover",
+      "setting": "studio",
+      "aspect_ratio": "2:3",
+      "copy": {
+        "masthead": "ATELIER NOTES",
+        "cover_lines": [
+          "SMALL EVERYDAY THINGS"
+        ],
+        "issue": null
+      },
+      "layout": {
+        "intent": "One fictional portrait magazine cover with a restrained visual hierarchy.",
+        "face_clear_area": "Keep eyes, nose and mouth unobstructed.",
+        "text_placement": "Masthead above the head; one cover line in the lower left negative space."
+      }
+    }
+  }
+}

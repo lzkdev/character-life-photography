@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0",
+  "record_stage": "plan",
+  "shoot_id": "generic-identity-reference",
+  "shot_id": "front-head-shoulders-01",
+  "is_example": true,
+  "character": {
+    "profile_id": "example-adult",
+    "profile_version": "draft-1",
+    "profile_path": "../profiles/example-adult/profile.json",
+    "path_base": "record",
+    "profile_sha256": "4c81c8b141bbd82871a4ef84633ddf80ea108397c79120f1edcbd7674493b95f",
+    "references": []
+  },
+  "context": {
+    "scene_time_local": null,
+    "timezone": "Etc/UTC",
+    "location": {
+      "city": null,
+      "district": null,
+      "place": "Designed neutral reference portrait with a plain dark-gray backdrop; no geographic claim.",
+      "accuracy": "fictionalized",
+      "source": null
+    },
+    "weather": {
+      "basis": "scenario",
+      "source": null,
+      "retrieved_at": null,
+      "valid_at": null,
+      "temperature_c": null,
+      "feels_like_c": null,
+      "precipitation": null,
+      "wind": null,
+      "summary": "Explicitly designed neutral lighting for initialization; no current-weather query or real-world weather claim."
+    }
+  },
+  "event": {
+    "id": "generic-identity-reference-event",
+    "basis": "proposed",
+    "source": {
+      "kind": "example",
+      "locator": "examples/generic-identity-reference.plan.json",
+      "note": "虚构成年男性首次设计示例；人设与结构均为演示拟定，没有参考图、没有生成或选定图片。"
+    },
+    "motivation": "为新人物建立可审阅的正面主身份候选。",
+    "before": "整理发型和上装。",
+    "action": "头与双肩完全朝前，自然放松，双眼直视眼平镜头。",
+    "after": "查看候选与草案是否一致，等待用户选择或修改。",
+    "mood": "放松、温和，中性闭口表情。"
+  },
+  "appearance": {
+    "wardrobe": "简单不透明的燕麦色棉质圆领上装，头肩构图中只展示肩部与领口。",
+    "hair": "短棕色卷发，不遮眉眼；短而整齐的胡须。",
+    "makeup": "无改变五官结构的妆容。",
+    "accessories": [],
+    "props": []
+  },
+  "photography": {
+    "style": {
+      "preset": "custom",
+      "description": "固定的中性正面身份摄影模板；与后续手机或胶片风格分开。"
+    },
+    "camera": {
+      "focal_length_mm_intent": 85,
+      "aperture_intent": "Enough depth for both eyes and the full face to stay sharp; visual intent only.",
+      "distance_m_intent": null,
+      "framing": "3:4 vertical head-and-shoulders with a little headroom",
+      "height_and_angle": "At eye level, no high or low angle; head forward, shoulders square and level."
+    },
+    "lighting": "左前约 45° 大面积柔光，另一侧轻补光；两眼清楚并保留柔和轮廓阴影。",
+    "color": "中性深灰背景与自然肤色，无风格偏色。",
+    "texture": "真实皮肤纹理、发丝与棉质织物，保留人物年龄与自然不对称。"
+  },
+  "continuity": {
+    "group_key": "generic-identity-reference",
+    "previous_shot_ids": [],
+    "keep": [
+      "示例人物的脸型与五官结构",
+      "短棕卷发与短胡须",
+      "暖中棕肤色与普通结实的肩颈结构"
+    ],
+    "intentional_changes": [],
+    "notes": "新人物首次设计计划，没有输入身份参考，不声称已有稳定可复现的脸。全身比例未由头肩照片证明。"
+  },
+  "prompts": {
+    "scene": "One photographic character identity reference, vertical 3:4, a head-and-shoulders portrait with a little headroom and an 85 mm-equivalent perspective. The head faces straight ahead, both shoulders face the camera and rest naturally level, and both eyes look directly into the lens. The camera is at eye level. Keep the entire face clearly readable, without a head turn, shoulder turn, head tilt or high/low camera angle. Use a relaxed, neutral, closed-mouth expression and a simple opaque oatmeal cotton crew-neck top.\nA clean neutral dark-gray background. A broad soft key light from approximately 45 degrees to camera left and gentle fill from the other side keep both eyes clear while preserving soft facial contour shadows. Preserve this character's age, natural skin detail and subtle asymmetry, with neutral color and clearly resolved facial features. One person in one continuous frame, without props, collage panels, lettering or watermark.",
+    "standalone": "This is a first design of a fictional 42-year-old man, with no existing identity reference. His skin is warm medium-brown with natural texture. His broad oval face tapers gently from the cheeks to a rounded-square chin. His naturally sized brown eyes have moderately long openings and nearly level inner and outer corners. His brown brows are medium in thickness and mostly straight with soft arches. His nose has a broad, straight bridge, a rounded tip and proportionate nostrils. His upper lip is a little thinner than his lower lip, with a softly defined cupid's bow and level mouth corners at rest. He has short curly brown hair and a short, neatly trimmed beard. His build is ordinarily solid, with moderate shoulder width, gently sloping shoulders and a medium-length neck. No distinctive marks or signature accessories have been defined.\n\nOne photographic character identity reference, vertical 3:4, a head-and-shoulders portrait with a little headroom and an 85 mm-equivalent perspective. The head faces straight ahead, both shoulders face the camera and rest naturally level, and both eyes look directly into the lens. The camera is at eye level. Keep the entire face clearly readable, without a head turn, shoulder turn, head tilt or high/low camera angle. Use a relaxed, neutral, closed-mouth expression and a simple opaque oatmeal cotton crew-neck top.\nA clean neutral dark-gray background. A broad soft key light from approximately 45 degrees to camera left and gentle fill from the other side keep both eyes clear while preserving soft facial contour shadows. Preserve this character's age, natural skin detail and subtle asymmetry, with neutral color and clearly resolved facial features. One person in one continuous frame, without props, collage panels, lettering or watermark.",
+    "negative": "Three-quarter or profile view, turned shoulders, tilted head, exaggerated facial expression, changed age, distorted facial proportions, altered skin color, opaque shadows over an eye, heavy color cast, collage, text."
+  },
+  "generation": {
+    "status": "not_requested",
+    "provider": null,
+    "model": null,
+    "task_id": null,
+    "seed": null,
+    "submitted_at": null,
+    "completed_at": null,
+    "image": null,
+    "error": null
+  },
+  "qc": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "findings": []
+  },
+  "evidence": [
+    {
+      "kind": "example",
+      "locator": "examples/generic-identity-reference.plan.json",
+      "note": "虚构成年男性首次设计示例；人设与结构均为演示拟定，没有参考图、没有生成或选定图片。"
+    },
+    {
+      "kind": "file",
+      "locator": "types/identity-reference.md",
+      "note": "identity-reference 1.0 / front-head-shoulders 1.0 固定模板，尚未生图实测。"
+    }
+  ],
+  "creation": {
+    "type_id": "identity-reference",
+    "type_version": "1.0",
+    "spec": {
+      "template_id": "front-head-shoulders",
+      "template_version": "1.0"
+    }
+  }
+}

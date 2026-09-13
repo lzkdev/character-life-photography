@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "record_stage": "plan",
+  "shoot_id": "generic-home",
+  "shot_id": "generic-home-01",
+  "is_example": true,
+  "character": {
+    "profile_id": "example-adult",
+    "profile_version": "draft-1",
+    "profile_path": "../profiles/example-adult/profile.json",
+    "path_base": "record",
+    "profile_sha256": "4c81c8b141bbd82871a4ef84633ddf80ea108397c79120f1edcbd7674493b95f",
+    "references": []
+  },
+  "context": {
+    "scene_time_local": null,
+    "timezone": "Etc/UTC",
+    "location": {
+      "city": null,
+      "district": null,
+      "place": "Fictional small home kitchen; city unspecified",
+      "accuracy": "fictionalized",
+      "source": null
+    },
+    "weather": {
+      "basis": "not_applicable",
+      "source": null,
+      "retrieved_at": null,
+      "valid_at": null,
+      "temperature_c": null,
+      "feels_like_c": null,
+      "precipitation": null,
+      "wind": null,
+      "summary": "Indoor scene; no outdoor weather claim."
+    }
+  },
+  "event": {
+    "id": "generic-home-event",
+    "basis": "proposed",
+    "source": {
+      "kind": "example",
+      "locator": "examples/generic-home.plan.json",
+      "note": "明确的虚构拍摄方案；未查询实时天气，未生图。"
+    },
+    "motivation": "准备早餐。",
+    "before": "拿出杯子和餐具。",
+    "action": "放下杯子，侧头回应画外的人。",
+    "after": "继续准备早餐。",
+    "mood": "放松而温和。"
+  },
+  "appearance": {
+    "wardrobe": "燕麦色棉 T 和宽松深色长裤。",
+    "hair": "短棕色卷发。",
+    "makeup": "自然日常状态。",
+    "accessories": [],
+    "props": [
+      "陶瓷杯",
+      "折叠擦碗巾"
+    ]
+  },
+  "photography": {
+    "style": {
+      "preset": "phone_snapshot",
+      "description": "室内手机随手拍，保留厨房层次，不追求棚拍光。"
+    },
+    "camera": {
+      "focal_length_mm_intent": 28,
+      "aperture_intent": "deep enough to read kitchen, no simulated portrait-mode cutout",
+      "distance_m_intent": 1.6,
+      "framing": "off-center medium environmental view",
+      "height_and_angle": "chest height"
+    },
+    "lighting": "侧窗柔光加室内小暖灯，无室外天气断言。",
+    "color": "自然厨房多色，无刻意单一亮色物件。",
+    "texture": "手机适量锐化、真实皮肤和织物，不加胶片颗粒或商业磨皮。"
+  },
+  "continuity": {
+    "group_key": "generic-home-a",
+    "previous_shot_ids": [],
+    "keep": [
+      "短棕卷发",
+      "暖中棕肤色",
+      "短胡须",
+      "同一件燕麦色棉 T"
+    ],
+    "intentional_changes": [],
+    "notes": "首次设计示例，尚无身份参考；不能声称已经锁定长期可复现的脸。UTC 只是无具体地点示例的记录时区，未指定拍摄日期。"
+  },
+  "prompts": {
+    "scene": "He wears an oatmeal cotton T-shirt and relaxed dark trousers and is making breakfast in a small lived-in kitchen, one hand setting a ceramic mug on the counter while the other rests naturally near a folded dish towel. He glances toward someone just outside the frame, mid-conversation, with a relaxed expression. A casual phone photo from chest height about 1.6 meters away, a 28 mm-equivalent field of view, slightly off-center framing and enough depth of field to read the kitchen. Soft side window light and a small warm ceiling light, believable mixed illumination, real skin and fabric texture, modest phone sharpening, no artificial portrait-mode cutout or studio polish. One visible person; an ordinary quiet morning, not a posed advertisement.",
+    "standalone": "A fictional 42-year-old man with short curly brown hair, warm medium-brown skin, brown eyes, a broad nose, a short neatly trimmed beard and an average solid build.\n\nHe wears an oatmeal cotton T-shirt and relaxed dark trousers and is making breakfast in a small lived-in kitchen, one hand setting a ceramic mug on the counter while the other rests naturally near a folded dish towel. He glances toward someone just outside the frame, mid-conversation, with a relaxed expression. A casual phone photo from chest height about 1.6 meters away, a 28 mm-equivalent field of view, slightly off-center framing and enough depth of field to read the kitchen. Soft side window light and a small warm ceiling light, believable mixed illumination, real skin and fabric texture, modest phone sharpening, no artificial portrait-mode cutout or studio polish. One visible person; an ordinary quiet morning, not a posed advertisement.",
+    "negative": "Altered facial structure, changed hairstyle, bleached or distorted natural skin tone, added jewelry or facial marks, waxy skin, distorted hands, duplicated person, extreme close wide-angle distortion, artificial bokeh cutout."
+  },
+  "generation": {
+    "status": "not_requested",
+    "provider": null,
+    "model": null,
+    "task_id": null,
+    "seed": null,
+    "submitted_at": null,
+    "completed_at": null,
+    "image": null,
+    "error": null
+  },
+  "qc": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "findings": []
+  },
+  "evidence": [
+    {
+      "kind": "example",
+      "locator": "examples/generic-home.plan.json",
+      "note": "明确的虚构拍摄方案；未查询实时天气，未生图。"
+    }
+  ],
+  "creation": {
+    "type_id": "daily-photo",
+    "type_version": "1.0",
+    "spec": {}
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Identity reference specification v1",
+  "type": "object",
+  "properties": {
+    "template_id": {"enum": ["front-head-shoulders", "front-full-body"]},
+    "template_version": {"const": "1.0"}
+  },
+  "required": ["template_id", "template_version"],
+  "additionalProperties": false
+}

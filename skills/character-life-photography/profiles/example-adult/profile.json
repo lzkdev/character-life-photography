@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "id": "example-adult",
+  "version": "draft-1",
+  "display_name": "虚构人物首次设计示例",
+  "status": "draft",
+  "identity": {
+    "kind": "fictional",
+    "age_policy": "fixed",
+    "age": 42,
+    "birth_date": null,
+    "description": "纯示例，不是真实人物；尚无选定身份图。"
+  },
+  "canon": {
+    "identity_prompt": "A fictional 42-year-old man with short curly brown hair, warm medium-brown skin, a broad oval face tapering gently to a rounded-square chin, naturally sized brown eyes, mostly straight brown brows, a broad straight nose, softly defined lips with a slightly fuller lower lip, a short neatly trimmed beard and an average solid frame with naturally sloping shoulders.",
+    "face": "较宽椭圆脸、圆中带方的下巴，棕眼平眉、较宽直鼻与柔和唇峰，短而整齐的胡须；细项见 structure。",
+    "skin": "暖中棕肤色。",
+    "hair": "短棕色卷发。",
+    "body": "普通结实身形，未设定尺寸。",
+    "distinctive_features": [],
+    "signature_items": [],
+    "structure": {
+      "face_shape": "较宽的椭圆脸，颧骨至下颌平缓收拢，下巴圆中带方。",
+      "eyes": "自然大小的棕色眼睛，眼裂适中，内外眼角近水平。",
+      "brows": "中等粗细的棕色眉毛，走势平直，眉峰柔和。",
+      "nose": "鼻梁较宽而直，鼻头圆，鼻翼与鼻梁宽度协调。",
+      "lips": "唇峰柔和，上唇略薄于下唇，放松时嘴角自然水平。",
+      "body_frame": "普通结实骨架，肩宽适中、肩线自然微斜，颈长适中；未定义躯干与腿长数值。"
+    }
+  },
+  "variable_appearance": {
+    "hair": [
+      "保留短卷发。"
+    ],
+    "makeup": [
+      "自然，无特定妆容要求。"
+    ],
+    "wardrobe": [
+      "根据场景选择日常服装。"
+    ],
+    "accessories": [
+      "未定义固定饰品。"
+    ]
+  },
+  "life": {
+    "personality": "放松、温和；仅示例设定。",
+    "background": "未定义职业和履历。",
+    "home_base": null,
+    "known_routines": [],
+    "unknowns": [
+      "家庭、职业与居住城市均未定义。"
+    ]
+  },
+  "references": [],
+  "style_preferences": {
+    "default_preset": "phone_snapshot",
+    "notes": [
+      "手机日常随拍，保持真实皮肤与较深景深。"
+    ],
+    "composition_constraints": []
+  },
+  "provenance": {
+    "snapshot_date": "2026-09-13",
+    "sources": [
+      {
+        "kind": "example",
+        "locator": "profiles/example-adult/profile.json",
+        "note": "为演示通用档案结构而拟定。"
+      }
+    ],
+    "unresolved_conflicts": [],
+    "proposed": [
+      "本档案全部人物内容为示例，不是已确认的长期人物 Canon。"
+    ]
+  }
+}

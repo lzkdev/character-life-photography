@@ -1,0 +1,1413 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Character daily photograph record v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "record_stage": {
+      "enum": [
+        "plan",
+        "generated"
+      ]
+    },
+    "shoot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "shot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "is_example": {
+      "type": "boolean"
+    },
+    "character": {
+      "type": "object",
+      "properties": {
+        "profile_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "profile_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "profile_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path_base": {
+          "enum": [
+            "absolute",
+            "record"
+          ]
+        },
+        "profile_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "role": {
+                "enum": [
+                  "primary_identity",
+                  "identity_view",
+                  "body",
+                  "scene",
+                  "style",
+                  "continuity"
+                ]
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path_base": {
+                "enum": [
+                  "absolute",
+                  "profile",
+                  "record"
+                ]
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "usage": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "role",
+              "path",
+              "path_base",
+              "sha256",
+              "usage"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "profile_id",
+        "profile_version",
+        "profile_path",
+        "path_base",
+        "profile_sha256",
+        "references"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "scene_time_local": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "district": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "place": {
+              "type": "string",
+              "minLength": 1
+            },
+            "accuracy": {
+              "enum": [
+                "verified",
+                "user_specified",
+                "fictionalized",
+                "unspecified"
+              ]
+            },
+            "source": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "file",
+                        "url",
+                        "user_message",
+                        "example"
+                      ]
+                    },
+                    "locator": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "note": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "locator",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "city",
+            "district",
+            "place",
+            "accuracy",
+            "source"
+          ],
+          "additionalProperties": false
+        },
+        "weather": {
+          "type": "object",
+          "properties": {
+            "basis": {
+              "enum": [
+                "observed",
+                "forecast",
+                "user_specified",
+                "scenario",
+                "unknown",
+                "not_applicable"
+              ]
+            },
+            "source": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "file",
+                        "url",
+                        "user_message",
+                        "example"
+                      ]
+                    },
+                    "locator": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "note": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "locator",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "retrieved_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "valid_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "temperature_c": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "feels_like_c": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "precipitation": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "wind": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "summary": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "basis",
+            "source",
+            "retrieved_at",
+            "valid_at",
+            "temperature_c",
+            "feels_like_c",
+            "precipitation",
+            "wind",
+            "summary"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "basis": {
+                    "enum": [
+                      "observed",
+                      "forecast"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "source": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "enum": [
+                          "file",
+                          "url",
+                          "user_message",
+                          "example"
+                        ]
+                      },
+                      "locator": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "note": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "locator",
+                      "note"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "retrieved_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "basis": {
+                    "enum": [
+                      "unknown",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "valid_at": {
+                    "type": "null"
+                  },
+                  "temperature_c": {
+                    "type": "null"
+                  },
+                  "feels_like_c": {
+                    "type": "null"
+                  },
+                  "precipitation": {
+                    "type": "null"
+                  },
+                  "wind": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "basis": {
+                    "const": "forecast"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "valid_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "scene_time_local",
+        "timezone",
+        "location",
+        "weather"
+      ],
+      "additionalProperties": false
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis": {
+          "enum": [
+            "existing_context",
+            "user_specified",
+            "proposed"
+          ]
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "file",
+                    "url",
+                    "user_message",
+                    "example"
+                  ]
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "note": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "kind",
+                "locator",
+                "note"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "motivation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "before": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "after": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mood": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "basis",
+        "source",
+        "motivation",
+        "before",
+        "action",
+        "after",
+        "mood"
+      ],
+      "additionalProperties": false
+    },
+    "appearance": {
+      "type": "object",
+      "properties": {
+        "wardrobe": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hair": {
+          "type": "string",
+          "minLength": 1
+        },
+        "makeup": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accessories": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "props": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "wardrobe",
+        "hair",
+        "makeup",
+        "accessories",
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "photography": {
+      "type": "object",
+      "properties": {
+        "style": {
+          "type": "object",
+          "properties": {
+            "preset": {
+              "enum": [
+                "natural_daily",
+                "phone_snapshot",
+                "documentary",
+                "cinematic_daily",
+                "film_daily",
+                "soft_portrait",
+                "custom"
+              ]
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "preset",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "camera": {
+          "type": "object",
+          "properties": {
+            "focal_length_mm_intent": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "aperture_intent": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "distance_m_intent": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "framing": {
+              "type": "string",
+              "minLength": 1
+            },
+            "height_and_angle": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "focal_length_mm_intent",
+            "aperture_intent",
+            "distance_m_intent",
+            "framing",
+            "height_and_angle"
+          ],
+          "additionalProperties": false
+        },
+        "lighting": {
+          "type": "string",
+          "minLength": 1
+        },
+        "color": {
+          "type": "string",
+          "minLength": 1
+        },
+        "texture": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "style",
+        "camera",
+        "lighting",
+        "color",
+        "texture"
+      ],
+      "additionalProperties": false
+    },
+    "continuity": {
+      "type": "object",
+      "properties": {
+        "group_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previous_shot_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "keep": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "intentional_changes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "group_key",
+        "previous_shot_ids",
+        "keep",
+        "intentional_changes",
+        "notes"
+      ],
+      "additionalProperties": false
+    },
+    "prompts": {
+      "type": "object",
+      "properties": {
+        "scene": {
+          "type": "string",
+          "minLength": 1
+        },
+        "standalone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "negative": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "scene",
+        "standalone",
+        "negative"
+      ],
+      "additionalProperties": false
+    },
+    "generation": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "not_requested",
+            "submitted",
+            "processing",
+            "succeeded",
+            "failed"
+          ]
+        },
+        "provider": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "task_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "submitted_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "completed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "image": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "local_path": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "url": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "width_px": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "height_px": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "sha256": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "path_base": {
+                  "enum": [
+                    "absolute",
+                    "record"
+                  ],
+                  "default": "absolute",
+                  "description": "Base for local_path. Omitted in legacy records means absolute; record is relative to this metadata file."
+                }
+              },
+              "required": [
+                "local_path",
+                "url",
+                "width_px",
+                "height_px",
+                "sha256"
+              ],
+              "additionalProperties": false,
+              "anyOf": [
+                {
+                  "properties": {
+                    "local_path": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "provider",
+        "model",
+        "task_id",
+        "seed",
+        "submitted_at",
+        "completed_at",
+        "image",
+        "error"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "not_requested"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "provider": {
+                "type": "null"
+              },
+              "model": {
+                "type": "null"
+              },
+              "task_id": {
+                "type": "null"
+              },
+              "seed": {
+                "type": "null"
+              },
+              "submitted_at": {
+                "type": "null"
+              },
+              "completed_at": {
+                "type": "null"
+              },
+              "image": {
+                "type": "null"
+              },
+              "error": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "submitted",
+                  "processing",
+                  "succeeded",
+                  "failed"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "submitted_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "succeeded"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "image": {
+                "type": "object",
+                "properties": {
+                  "local_path": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "url": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "width_px": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "height_px": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "sha256": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "path_base": {
+                    "enum": [
+                      "absolute",
+                      "record"
+                    ],
+                    "default": "absolute",
+                    "description": "Base for local_path. Omitted in legacy records means absolute; record is relative to this metadata file."
+                  }
+                },
+                "required": [
+                  "local_path",
+                  "url",
+                  "width_px",
+                  "height_px",
+                  "sha256"
+                ],
+                "additionalProperties": false,
+                "anyOf": [
+                  {
+                    "properties": {
+                      "local_path": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  {
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                ]
+              },
+              "completed_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "error": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "image": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "failed"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "qc": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "not_reviewed",
+            "passed",
+            "needs_revision"
+          ]
+        },
+        "reviewed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "status",
+        "reviewed_at",
+        "findings"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "enum": [
+              "file",
+              "url",
+              "user_message",
+              "example"
+            ]
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "kind",
+          "locator",
+          "note"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "interaction": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "observational",
+            "companion",
+            "responsive"
+          ]
+        },
+        "camera_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trigger": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "response": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gaze_target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "visible_cues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "mode",
+        "camera_role",
+        "trigger",
+        "response",
+        "gaze_target",
+        "visible_cues"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "responsive"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "trigger": {
+                "type": "string",
+                "minLength": 1
+              },
+              "response": {
+                "type": "string",
+                "minLength": 1
+              },
+              "visible_cues": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "creation": {
+      "type": "object",
+      "properties": {
+        "type_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "type_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "type_id",
+        "type_version",
+        "spec"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "record_stage",
+    "shoot_id",
+    "shot_id",
+    "is_example",
+    "character",
+    "context",
+    "event",
+    "appearance",
+    "photography",
+    "continuity",
+    "prompts",
+    "generation",
+    "qc",
+    "evidence"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_stage": {
+            "const": "plan"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "generation": {
+            "properties": {
+              "status": {
+                "const": "not_requested"
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "generation": {
+            "properties": {
+              "status": {
+                "not": {
+                  "const": "not_requested"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "qc": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "passed",
+                  "needs_revision"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "generation": {
+            "properties": {
+              "status": {
+                "const": "succeeded"
+              }
+            }
+          },
+          "qc": {
+            "properties": {
+              "reviewed_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "qc": {
+            "properties": {
+              "reviewed_at": {
+                "type": "null"
+              },
+              "findings": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
