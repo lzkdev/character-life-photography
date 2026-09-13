@@ -1,4 +1,0 @@
-interface:
-  display_name: "人物摄影与视觉创作"
-  short_description: "独立管理多个人物与正面参考，支持日常摄影和封面，图片与贴文直接交付，JSON 记录可选"
-  default_prompt: "使用 $character-life-photography，创建或加载我的人物设定与参考图，确定长期保存位置，再生成日常照片和配套贴文，按我的选择决定是否保存 JSON 拍摄记录。"

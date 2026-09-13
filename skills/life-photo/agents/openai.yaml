@@ -1,0 +1,4 @@
+interface:
+  display_name: "人物摄影 · life-photo"
+  short_description: "人物生图、日常照片、互动写真、街拍与杂志封面；支持多人物档案和系列套图"
+  default_prompt: "使用 $life-photo，创建或加载我的人物档案与参考图，生成一组日常照片和配套贴文，并保存到我选择的目录。"

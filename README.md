@@ -1,6 +1,6 @@
-# Character Life Photography · 人物摄影与视觉创作
+# Life Photo · 人物摄影
 
-一个可独立安装的 Codex Skill：一起创建人物、选定身份参考，再用同一份档案进行日常摄影或杂志封面创作。人物、创作类型、摄影风格和镜头互动分开维护，保留调用名 character-life-photography。
+一个可独立安装的 Codex Skill：一起创建人物、选定身份参考，再用同一份档案进行日常摄影或杂志封面创作。人物、创作类型、摄影风格和镜头互动分开维护，调用名为 `life-photo`。
 
 ## 能做什么
 
@@ -18,25 +18,29 @@
 
 ## 安装
 
-本仓库的技能目录是 `skills/character-life-photography/`。
+本仓库的技能目录是 `skills/life-photo/`。
 
 仓库地址：[lzkdev/character-life-photography](https://github.com/lzkdev/character-life-photography)。
 
 **交给 Codex 安装**：把本仓库的实际链接发给 Codex，并说：
 
-> 请从 https://github.com/lzkdev/character-life-photography 安装 skills/character-life-photography 这个 Skill，保留整个目录及其依赖文件。安装后先读取 SKILL.md；首次使用时与我初始化人物、身份参考和长期保存目录。
+> 请从 https://github.com/lzkdev/character-life-photography 安装 skills/life-photo 这个 Skill，保留整个目录及其依赖文件。安装后先读取 SKILL.md；首次使用时与我初始化人物、身份参考和长期保存目录。
 
-也可直接提供 [Skill 目录链接](https://github.com/lzkdev/character-life-photography/tree/main/skills/character-life-photography)。仓库已公开，可直接读取或下载，无需登录 GitHub。
+也可直接提供 [Skill 目录链接](https://github.com/lzkdev/character-life-photography/tree/main/skills/life-photo)。仓库已公开，可直接读取或下载，无需登录 GitHub。
 
-**手动安装**：下载 ZIP 并解压，把整个 `character-life-photography` 文件夹放到你的 Codex 技能目录。默认位置为：
+**手动安装**：下载 ZIP 并解压，把整个 `life-photo` 文件夹放到你的 Codex 技能目录。默认位置为：
 
 ```text
-~/.codex/skills/character-life-photography/SKILL.md
+~/.codex/skills/life-photo/SKILL.md
 ```
 
 若设置过 CODEX_HOME，则使用该目录下的 skills。保留文件夹内的 references、types、profiles、examples、agents 和 scripts，不要只复制 SKILL.md，也不要多嵌套一层同名文件夹。Mac 可在 Finder 的“前往文件夹”中输入 `~/.codex/skills`。
 
 安装后在下一轮对话或新会话里调用；若技能列表仍未刷新，再重启 Codex。
+
+**查找与调用**：列表显示名为“人物摄影 · life-photo”。在 `@` 选择器里搜索 `life-photo` 或“人物摄影”；支持 `$` 的 Codex 入口可直接输入 `$life-photo`。也可以直接说“用人物摄影 Skill 生成一组互动写真”。入口和刷新方式参见 [官方 Skill 文档](https://learn.chatgpt.com/docs/build-skills#how-chatgpt-and-codex-use-skills)。
+
+**旧版升级**：此前调用名为 `character-life-photography`。更新时将旧技能目录更名为 `life-photo`，用新包更新同名文件，保留个人 `settings.local.json` 和用户资料；不要同时保留两份可被扫描的技能目录。现有项目配置仍使用 `.character-life-photography.json`，已有照片与人物档案无需迁移。GitHub 仓库地址保持不变。
 
 **其他智能体**：将上述完整目录安装到该智能体支持的 Skill 目录，并让它先读取 SKILL.md。需要支持文件读写、身份参考图与图像生成；天气查询还需要联网能力。具体能力由执行环境提供，并非安装这些文件就自动获得。仓库附带的 Python 辅助脚本只使用标准库。通用说明可供其他智能体读取，实际安装适配仍以它支持的格式为准。
 
@@ -46,19 +50,19 @@
 
 没有人物或参考图：
 
-> 使用 $character-life-photography，和我一起创建一个新人物。我还没有人设和参考图。
+> 使用 $life-photo，和我一起创建一个新人物。我还没有人设和参考图。
 
 已有参考图：
 
-> 使用 $character-life-photography，以我提供的图片建立人物档案，和我补齐生活设定。
+> 使用 $life-photo，以我提供的图片建立人物档案，和我补齐生活设定。
 
 已有完整档案：
 
-> 使用 $character-life-photography，加载我指定的人物档案，生成 3 张胶片风格的日常照片。
+> 使用 $life-photo，加载我指定的人物档案，生成 3 张胶片风格的日常照片。
 
 希望照片有互动感：
 
-> 使用 $character-life-photography，给这个人物拍一组有互动感的日常照片，像在和拿相机的同伴交流。按生活情境安排回应，摄影风格用自然手机随拍。
+> 使用 $life-photo，给这个人物拍一组有互动感的日常照片，像在和拿相机的同伴交流。按生活情境安排回应，摄影风格用自然手机随拍。
 
 初始化会先利用你已有的信息，逐步确定人设、常住位置和保存目录；需要新主脸时先创建候选，选定后再进入长期日常拍摄。你不用手写 JSON。
 
@@ -98,9 +102,9 @@
 
 日常摄影与封面共用人物、初始化、参考、记录和保存机制。日常摄影继续按预设位置查询当前天气；明确的摄影棚封面采用设计的灯光，外景封面按实际环境处理。
 
-> 使用 $character-life-photography，给我指定的人物做一张杂志封面。先和我确定主题、封面文字与版式。
+> 使用 $life-photo，给我指定的人物做一张杂志封面。先和我确定主题、封面文字与版式。
 
-> 使用 $character-life-photography，生成一张有互动感的杂志封面人物底图，胶片风格，不加文字。
+> 使用 $life-photo，生成一张有互动感的杂志封面人物底图，胶片风格，不加文字。
 
 新增类型时添加 types/<type-id>.md，并在 references/creation-types.md 登记；需要专用参数时增加类型自己的 Schema。无需重写人物档案或复制整份核心流程，也不需要为了新增类型连接社交账号。
 
